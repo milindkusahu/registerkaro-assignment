@@ -1,10 +1,11 @@
-import "./App.css";
+import Layout from "./components/layout/Layout";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <>
-      <h1>Register Karo</h1>
-    </>
+    <Layout>
+      <Home />
+    </Layout>
   );
 }
 

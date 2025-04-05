@@ -1,61 +1,159 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Poppins", sans-serif;
 
-  body {
-    font-family: "Inter", sans-serif;
-    color: #1e2643;
-  }
+  --color-primary: #ff8a00;
+  --color-primary-light: #ffaa51;
+  --color-primary-dark: #e67a00;
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
+  --color-secondary: #195385;
+  --color-secondary-light: #2976b5;
+  --color-secondary-dark: #134067;
+
+  --color-tertiary: #f5f8ff;
+  --color-tertiary-dark: #e5e9f2;
+
+  --color-dark: #1e2643;
+  --color-dark-light: #2d3a66;
+
+  --animation-float: float 3s ease-in-out infinite;
+  --animation-marquee: marquee 25s linear infinite;
+  --animation-marquee-reverse: marquee-reverse 25s linear infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
 
-@layer components {
-  .container {
-    @apply px-4 mx-auto max-w-7xl;
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Custom utilities */
+@utility container {
+  padding-inline: 1rem;
+  margin-inline: auto;
+  max-width: 80rem; /* 1280px */
+
+  @media (min-width: 640px) {
+    padding-inline: 1.5rem;
   }
 
-  .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium transition-all duration-300 rounded-lg;
+  @media (min-width: 1024px) {
+    padding-inline: 2rem;
   }
+}
 
-  .btn-primary {
-    @apply btn bg-[#FF8A00] text-white hover:bg-[#E67A00];
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+@utility btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+
+  &:hover {
+    background-color: var(--color-primary-dark);
   }
+}
 
-  .btn-secondary {
-    @apply btn bg-white text-[#195385] border border-[#195385] hover:bg-[#F5F8FF];
+@utility btn-secondary {
+  background-color: white;
+  color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+
+  &:hover {
+    background-color: var(--color-tertiary);
   }
+}
 
-  .btn-outline {
-    @apply btn bg-transparent border border-current text-[#FF8A00] hover:bg-[#FF8A00] hover:text-white;
+@utility btn-outline {
+  background-color: transparent;
+  border: 1px solid currentColor;
+  color: var(--color-primary);
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: white;
   }
+}
 
-  .section {
-    @apply py-16 md:py-24;
+@utility section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  @media (min-width: 768px) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
+}
 
-  .section-title {
-    @apply mb-12 text-3xl md:text-4xl font-bold text-center;
+@utility section-title {
+  margin-bottom: 3rem;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
+}
 
-  .card {
-    @apply p-6 bg-white rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05)] transition-all duration-300 hover:shadow-[0_20px_35px_-10px_rgba(0,0,0,0.1)];
+@utility card {
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+
+  &:hover {
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
   }
+}
 
-  .nav-link {
-    @apply text-[#1E2643] hover:text-[#FF8A00] transition-colors duration-300;
+@utility nav-link {
+  color: var(--color-dark);
+  transition-property: color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+
+  &:hover {
+    color: var(--color-primary);
   }
 }
