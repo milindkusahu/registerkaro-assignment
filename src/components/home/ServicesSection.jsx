@@ -11,6 +11,7 @@ import {
   HiCalculator,
   HiAcademicCap,
 } from "react-icons/hi";
+import { FiShield, FiTarget, FiTrendingUp } from "react-icons/fi";
 
 const ServiceCard = ({ icon, title, delay }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -129,6 +130,66 @@ const ServicesSection = () => {
             Explore our services <HiArrowRight className="ml-2 w-5 h-5" />
           </a>
         </motion.div>
+
+        {/* Service advantages */}
+        <div className="mt-24 bg-(--color-tertiary) rounded-2xl p-8 md:p-12 shadow-lg">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center text-center"
+            >
+              <div className="bg-white p-4 rounded-full shadow-md text-(--color-primary) mb-4">
+                <FiShield className="w-10 h-10" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">
+                Full Compliance Protection
+              </h3>
+              <p className="text-gray-600">
+                Our services ensure your business stays fully compliant with all
+                relevant regulations and legal requirements.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center text-center"
+            >
+              <div className="bg-white p-4 rounded-full shadow-md text-(--color-primary) mb-4">
+                <FiTarget className="w-10 h-10" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Focused Expertise</h3>
+              <p className="text-gray-600">
+                Each service is backed by specialists with deep domain knowledge
+                who focus exclusively on their area of expertise.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center text-center"
+            >
+              <div className="bg-white p-4 rounded-full shadow-md text-(--color-primary) mb-4">
+                <FiTrendingUp className="w-10 h-10" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">
+                Business Growth Support
+              </h3>
+              <p className="text-gray-600">
+                Our comprehensive service suite is designed to remove obstacles
+                and create clear pathways for your business growth.
+              </p>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
