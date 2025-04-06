@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
+import { HiOutlineMenuAlt3, HiPhone, HiX } from "react-icons/hi";
 import { motion } from "framer-motion";
 
 const Header = ({ scrolled }) => {
@@ -38,7 +38,9 @@ const Header = ({ scrolled }) => {
             <a href="#contact" className="nav-link font-medium">
               Contact
             </a>
-            <button className="btn btn-primary">+91 8447746183</button>
+            <button className="btn btn-primary flex items-center justify-center">
+              <HiPhone className="mr-2 w-4 h-4" /> +91 8447746183
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -79,7 +81,9 @@ const Header = ({ scrolled }) => {
             <a href="#contact" className="nav-link font-medium">
               Contact
             </a>
-            <button className="btn btn-primary">+91 8447746183</button>
+            <button className="btn btn-primary flex items-center justify-center">
+              <HiPhone className="mr-2 w-4 h-4" /> +91 8447746183
+            </button>
           </div>
         </motion.div>
       )}
